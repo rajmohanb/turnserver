@@ -1,4 +1,18 @@
 Turnserver::Application.routes.draw do
+  get "site/home"
+
+  get "site/about"
+
+  get "site/features"
+
+  get "site/blog"
+
+  get "site/privacy"
+
+  get "site/terms"
+
+  get "site/contact"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
