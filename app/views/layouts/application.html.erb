@@ -1,14 +1,35 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Turnserver</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
-<%= yield %>
-
-</body>
+  <head>
+    <title>SeamConnect * <%= yield(:title) %></title>
+    <%= stylesheet_link_tag    "application", media: "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= stylesheet_link_tag "http://fonts.googleapis.com/css?family=Arvo", :media => "all" %>
+    <%= csrf_meta_tags %>
+    <%= render 'layouts/shim' %>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Le fav and touch icons -->
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="twitter-bootstrap-v2/docs/examples/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="twitter-bootstrap-v2/docs/examples/images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="twitter-bootstrap-v2/docs/examples/images/apple-touch-icon-114x114.png">
+  </head>
+  <body>
+    <div id="mywrap">
+      <div id="container">
+      <%= render 'layouts/messages' %>
+      <%= render 'layouts/header' %>
+      <div class="container-fluid">
+        <div class="row-fluid">
+          <%= yield %>
+        </div>
+      </div>
+      <div id="mypush"></div>
+      </div>
+    </div>
+    <div id="myfooter">
+      <%= render 'layouts/footer' %>
+    </div>
+    <%= debug(params) if Rails.env.development? %>
+  </body>
 </html>

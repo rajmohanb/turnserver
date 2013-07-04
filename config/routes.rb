@@ -1,17 +1,15 @@
 Turnserver::Application.routes.draw do
-  get "site/home"
 
-  get "site/about"
+  root to: 'site#home'
 
-  get "site/features"
+  match '/home', to: 'site#home'
+  match '/about', to: 'site#about'
+  match '/features', to: 'site#features'
+  match '/blog', to: 'site#blog'
+  match '/privacy', to: 'site#privacy'
+  match '/terms', to: 'site#terms'
+  match '/contact', to: 'site#contact'
 
-  get "site/blog"
-
-  get "site/privacy"
-
-  get "site/terms"
-
-  get "site/contact"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

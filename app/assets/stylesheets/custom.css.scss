@@ -1,0 +1,284 @@
+@import "bootstrap";
+body { padding-top: 40px; }
+@import "bootstrap-responsive";
+
+body.pull_top {
+    padding-top: 0px !important;
+}
+
+
+.mb-home-signup-large {
+  padding: 9px 91px;
+}
+
+.table-hover tbody tr:hover td,
+.table-hover tbody tr:hover th {
+  background-color: rgb(209, 255, 255);
+}
+
+#allocations1 {
+  font-size: 85%;
+  td {
+    text-align: center;
+  }
+  th {
+    text-align: center;
+    background-color: #ffcccc;
+  }
+}
+
+#allocations_info1 {
+  font-size: 85%;
+}
+
+#allocations_wrapper {
+  font-size: 85%;
+  td {
+    text-align: center;
+  }
+  th {
+    text-align: center;
+    background-color: #ffcccc;
+  }
+  .row-fluid {
+    font-size: 85%;
+  }
+}
+
+#allocations_filter1 {
+  font-size: 85%;
+}
+
+#allocations_length1 {
+  font-size: 85%;
+}
+
+.dataTables_paginate1 {
+  font-size: 85%;
+}
+
+
+
+.hero-unit {
+    /* background: url(/cloud_nat.jpg); */
+    /* background-color: #ffffff; */
+}
+
+.navbar.transparent.navbar-inverse .navbar-inner {
+    /* background: rgba(0,0,0,0.4); */
+    /* background: rgba(111,100,236,0.4); */
+    border-bottom: 1px solid rgb(88, 88, 88);
+    color: #6f64ec
+}
+
+.navbar.transparent.navbar-inverse .navbar-inner .container {
+    background: rgba(0,136,204,0.4);
+    color: #6f64ec;
+    /* margin-top: 10px; */
+    margin-bottom: 0px;
+    -webkit-transition: margin .2s ease-in-out;
+    -moz-transition: margin .2s ease-in-out;
+    transition: margin .2s ease-in-out;
+}
+
+.navbar.inverse {
+    color: #6f64ec;
+}
+
+.navbar-inverse .navbar-inner {
+  /* background-color: #357fcf; */
+  background-color: #005596;
+  background-image: -moz-linear-gradient(top, #357fcf, #357fcf);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#357fcf), to(#357fcf));
+  background-image: -webkit-linear-gradient(top, #357fcf, #357fcf);
+  background-image: -o-linear-gradient(top, #357fcf, #357fcf);
+  background-image: linear-gradient(to bottom, #357fcf, #357fcf);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FF357fcf', endColorstr='#FF357fcf', GradientType=0);
+  border-color: #252525;
+  /* font-family: 'Nova Square', cursive; */
+  /* font-family: 'Roboto', sans-serif; */
+  /* font-family: 'Titillium Web', sans-serif; */
+  font-family: 'Arvo', sans-serif;
+}
+
+/* mixins, variables, etc. */
+
+$grayMediumLight: #eaeaea;
+
+/* universal */
+
+html {
+  overflow-y: scroll;
+}
+
+html,
+body {
+  height: 100%;
+  font-family: 'Arvo', sans-serif;
+}
+
+#mywrap {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -60px;
+}
+
+#mypush,
+#myfooter {
+  height: 60px;
+}
+
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.center {
+  text-align: center;
+  h1 {
+    margin-bottom: 10px;
+  }
+}
+
+/* typography */
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1;
+}
+
+h1 {
+  font-size: 3em;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.7em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: normal;
+  color: $grayLight;
+}
+
+p {
+  font-size: 1.1em;
+  line-height: 1.7em;
+}
+
+
+/* header */
+
+#logo {
+  float: left;
+  margin-right: 10px;
+  font-size: 1.7em;
+  color: white;
+  /* text-transform: uppercase; */
+  letter-spacing: -1px;
+  padding-top: 9px;
+  font-weight: bold;
+  line-height: 1;
+  &:hover {
+    color: black;
+    text-decoration: none;
+  }
+}
+
+header {
+    background: rgba(0,0,0,.6) !important;
+}
+
+/* footer */
+
+footer {
+  /* margin-top: 45px; */
+  margin-top: 5px;
+  padding-top: 5px;
+  border-top: 1px solid $grayMediumLight;
+  color: $grayLight;
+  a {
+    color: $gray;
+    &:hover { 
+      color: $grayDarker;
+    }
+  }  
+  small { 
+    float: none; 
+  }
+
+  ul {
+    float: right;
+    list-style: none;
+    li {
+      float: left;
+      margin-left: 10px;
+    }
+  }
+
+  ull {
+    float: left;
+    list-style: none;
+    li {
+      float: right;
+      margin-right: 10px;
+    }
+  }
+}
+
+/* following from railsapps example - http://railsapps.github.com/tutorial-rails-mongoid-devise.html */
+header nav ul {
+  list-style: none;
+  margin: 0 0 2em;
+  padding: 0;
+}
+
+header {
+  background-color: rgb(255, 255, 255);
+}
+
+header nav ul li {
+  display: inline;
+}
+
+.navbar-inverse .nav > li > a {
+  color: #ffffff;
+}
+
+.navbar-inverse {
+  color: #ffffff;
+}
+
+
+#flash_notice, #flash_alert {
+  padding: 5px 8px;
+  margin: 10px 0;
+}
+#flash_notice {
+  background-color: #CFC;
+  border: solid 1px #6C6;
+}
+#flash_alert {
+  background-color: #FCC;
+  border: solid 1px #C66;
+}
+
+.content {
+  background-color: #eee;
+  padding: 20px;
+  margin: 0 -20px; /* negative indent the amount of the padding to maintain the grid system */
+  -webkit-border-radius: 0 0 6px 6px;
+  -moz-border-radius: 0 0 6px 6px;
+  border-radius: 0 0 6px 6px;
+  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+  -moz-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+  box-shadow: 0 1px 2px rgba(0,0,0,.15);
+}
+
+
