@@ -12,6 +12,10 @@ group :development, :test do
   gem 'capistrano'
 end
 
+group :development do
+  gem 'annotate', '2.5.0'
+end
+
 gem 'pg', '0.14.1'
 
 # Gems used only for assets and not required
