@@ -12,27 +12,14 @@
           <li><%= link_to "Blog",     blog_path %></li>
         </ul>
         <ul class="nav pull-right">
-          <% if user_signed_in? %>
-            <li><%= link_to current_user.email, '#' %></li>
-            <li id="fat-menu" class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                Account <b class="caret"></b>
-              </a>
-              <ul class="dropdown-menu">
-                <li><%= link_to "Change Password", edit_user_registration_path %></li>
-                <li><%= link_to "TURN Configuration", edit_user_path(current_user) %></li>
-                <li class="divider"></li>
-                <li><%= link_to "Delete Account", registration_path(current_user), :confirm => "Are you sure?", :method => :delete %></li>
-                <li class="divider"></li>
-                <li><%= link_to "Sign out", destroy_user_session_path, method: "delete" %></li>
-              </ul>
-            </li>
+          <% if customer_signed_in? %>
+            <li><%= link_to current_customer.email, '#' %></li>
             <li><!-- <i class="icon-user icon-white"></i> -->
             <%= link_to "Sign Out",  
-                destroy_user_session_path, :method => :delete %></li>
+                destroy_customer_session_path, :method => :delete %></li>
           <% else %>
             <li><!-- <i class="icon-user icon-white"></i> -->
-            <%= link_to "Sign In",  new_user_session_path %></li>
+            <%= link_to "Sign In",  new_customer_session_path %></li>
           <% end %>
         </ul>
       </nav>

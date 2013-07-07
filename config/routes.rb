@@ -1,5 +1,9 @@
 Turnserver::Application.routes.draw do
 
+  devise_for :customers
+
+  resources :customers
+
   root to: 'site#home'
 
   match '/home', to: 'site#home'

@@ -1,0 +1,105 @@
+
+<%= form_for(@user, :html => { :class => "form-horizontal" }, :url => { :action => "update" }, :method => "put") do |f| %>
+
+  <fieldset>
+    <div id="legend" class="">
+      <legend class="">Account Settings</legend>
+    </div>
+
+    <!-- <%= debug f %> -->
+    <!-- <%= simple_format @user.to_yaml %> -->
+
+    <div class="control-group">
+
+      <!-- Text input-->
+      <%= f.label :first_name, :class => "control-label" %>
+      <div class="controls">
+        <%= f.text_field :first_name, :class => "input-xlarge" %>
+        <p class="help-block"></p>
+      </div>
+    </div>
+
+    <div class="control-group">
+
+      <!-- Text input-->
+      <%= f.label :last_name, :class => "control-label" %>
+      <div class="controls">
+        <%= f.text_field :last_name, :class => "input-xlarge" %>
+        <p class="help-block"></p>
+      </div>
+    </div>
+
+    <div class="control-group">
+
+      <!-- Text input-->
+      <%= f.label :username, :class => "control-label" %>
+      <div class="controls">
+        <%= f.text_field :username, :class => "input-xlarge" %>
+        <p class="help-block"><small>Used during TURN protocol exchange</small></p>
+      </div>
+    </div>
+      
+    <div class="control-group">
+
+      <!-- Text input-->
+      <%= f.label :turn_secret, :class => "control-label" %>
+      <div class="controls">
+        <%= f.text_field :turn_secret, :class => "input-xlarge" %>
+        <p class="help-block"><small>Used during TURN protocol exchange. Must be atleast 8 chars.</small></p>
+      </div>
+    </div>
+      
+    <div class="control-group">
+
+      <!-- Text input-->
+      <%= f.label :max_concur_allocs, :class => "control-label" %>
+      <div class="controls">
+        <%= f.text_field :max_concur_allocs, :class => "input-xlarge" %>
+        <p class="help-block"><small>Maximum allowed concurrent/active allocations at any time.</small></p>
+      </div>
+    </div>
+
+
+    <div class="control-group">
+
+      <!-- Text input-->
+      <%= f.label :realm, :class => "control-label" %>
+      <div class="controls">
+        <%= f.text_field :realm, :class => "input-xlarge" %>
+        <p class="help-block"></p>
+      </div>
+    </div>
+
+    <div class="control-group">
+
+      <!-- Text input-->
+      <%= f.label :def_lifetime, :class => "control-label" %>
+      <div class="controls">
+        <%= f.text_field :def_lifetime, :class => "input-xlarge" %>
+        <p class="help-block"><small>Default lifetime of the allocation in seconds if one is not given.</small></p>
+      </div>
+    </div>
+
+    <div class="control-group">
+
+      <!-- Text input-->
+      <%= f.label :max_bandwidth, :class => "control-label" %>
+      <div class="controls">
+        <%= f.text_field :max_bandwidth, :class => "input-xlarge" %>
+        <p class="help-block"><small>Maximum allowed bandwidth.</small></p>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label"></label>
+
+      <!-- Button -->
+      <div class="controls">
+        <div><%= f.submit "Save Configuration", class: "btn btn-small btn-success" %></div>
+      </div>
+    </div>
+
+  </fieldset>
+</form>
+<% end %>
+

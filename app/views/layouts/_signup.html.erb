@@ -1,0 +1,53 @@
+
+<%= form_for(resource, :html => { :class => "form-horizontal" }, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+  <fieldset>
+  <div class="control-group">
+
+    <!-- Text input-->
+    <label class="control-label" for="user_email"></label>
+    <div class="controls">
+      <input id="user_email" name="user[email]" autofocus="autofocus" placeholder="Your email address" class="input-xlarge" type="text">
+      <p class="help-block"></p>
+    </div>
+  </div>
+
+  <div class="control-group">
+
+    <!-- Text input-->
+    <label class="control-label" for="user_password"></label>
+    <div class="controls">
+      <input id="user_password" name="user[password]" placeholder="password" class="input-xlarge" type="password">
+      <p class="help-block"></p>
+    </div>
+  </div>
+
+  <div class="control-group">
+
+    <!-- Text input-->
+    <label class="control-label" for="user_password_confirmation"></label>
+    <div class="controls">
+      <input id="user_password_confirmation" name="user[password_confirmation]" placeholder="confirm password" class="input-xlarge" type="password">
+    </div>
+  </div>
+
+  <div class="control-group">
+    <!-- Terms and Privacy text -->
+    <label class="control-label"></label>
+    <div class="controls">
+        <p class="help-block"><h6>By clicking on "Sign up for free" below, you agree to the <%= link_to "Terms of Service", terms_path %> and the <%= link_to "Privacy", privacy_path %> Policy.</h6></p>
+    </div>
+
+    <label class="control-label"></label>
+
+    <!-- Button -->
+    <div class="controls">
+      <%= f.submit "Sign up for free", class: "btn btn-success mb-home-signup-large" %>
+    </div>
+  </div>
+
+  </fieldset>
+</form>
+<% end %>
+

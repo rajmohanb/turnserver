@@ -1,0 +1,48 @@
+<%= form_for(resource, :html => { :class => "form" }, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+
+  <fieldset>
+    <div class="control-group">
+
+      <!-- Text input-->
+      <label class="control-label" for="user_email">Email address</label>
+      <div class="controls">
+        <input id="user_email" name="user[email]" autofocus="autofocus" placeholder="Your email address" class="input-xlarge" type="text">
+        <p class="help-block"></p>
+      </div>
+    </div>
+
+    <div class="control-group">
+
+      <!-- Text input-->
+      <label class="control-label" for="user_password">Password</label>
+      <div class="controls">
+        <input id="user_password" name="user[password]" placeholder="password" class="input-xlarge" type="password">
+        <p class="help-block"></p>
+      </div>
+    </div>
+
+    <div class="control-group">
+
+      <!-- Checkboxes-->
+      <label class="control-label"></label>
+      <div class="controls">
+        <label class="checkbox">
+          <input id="user_remember_me" name="user[remember_me]" type="checkbox">Remember me
+        </label>
+        <p class="help-block"></p>
+      </div>
+
+    </div>
+
+    <div class="control-group">
+      <label class="control-label"></label>
+
+      <!-- Button -->
+      <div class="controls">
+        <div><%= f.submit "Sign in", class: "btn btn-small btn-success" %></div>
+      </div>
+    </div>
+
+  </fieldset>
+
+<% end %>
