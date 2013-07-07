@@ -9,4 +9,10 @@ class Customer < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
 
   attr_accessible :realm, :first_name, :last_name
+
+  # Association with the user model
+  has_many :users, dependent: :destroy
+
+  # Association with the allocation model
+  has_many :allocations, through: :users
 end
