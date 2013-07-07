@@ -5,14 +5,14 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :token_authenticatable,
          :rememberable, :trackable, :validatable
 
-  # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me
-
   # Association with the allocation model
   has_many :allocations, dependent: :destroy
 
   # Association with the customer model
   belongs_to :customer
 
-  # attr_accessible :title, :body
+  # Setup accessible (or protected) attributes for your model
+  attr_accessible :email, :password, :password_confirmation, :remember_me
+  attr_accessible :max_allocs, :max_concur_allocs, :turn_secret, :def_lifetime,
+                  :max_bandwidth, :first_name, :last_name
 end
