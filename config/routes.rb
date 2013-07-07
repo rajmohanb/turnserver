@@ -1,8 +1,11 @@
 Turnserver::Application.routes.draw do
 
   devise_for :customers
+  devise_for :users
 
-  resources :customers
+  resources :customers do
+    resources :users
+  end
 
   root to: 'site#home'
 
