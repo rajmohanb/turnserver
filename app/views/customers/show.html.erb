@@ -1,1 +1,18 @@
 <h1> This is show action for customer </h1>
+
+<% if @customer.users.any? %>
+  <% i = 0 %>
+  <tbody>
+    <% @customer.users.each do |user| %>
+      <% i += 1%>
+      <tr>
+        <td><%= i %></td>
+        <td><%= user.first_name %><%= user.last_name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+<% else %>
+  <p>Howdy, no users created so far!.</p>
+<%end %>
+
+<%= link_to "Create a new user?", new_customer_user_path(current_customer) %>

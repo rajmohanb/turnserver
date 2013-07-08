@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130707210153) do
+ActiveRecord::Schema.define(:version => 20130708112749) do
 
   create_table "allocations", :force => true do |t|
     t.integer  "req_lifetime"
@@ -67,9 +67,9 @@ ActiveRecord::Schema.define(:version => 20130707210153) do
     t.string   "turn_secret"
     t.string   "first_name"
     t.string   "last_name"
-    t.integer  "allocs"
-    t.integer  "active_allocs"
-    t.integer  "bandwidth_used"
+    t.integer  "allocs",               :default => 0
+    t.integer  "active_allocs",        :default => 0
+    t.integer  "bandwidth_used",       :default => 0
     t.string   "turn_username"
   end
 
