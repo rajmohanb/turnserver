@@ -1,0 +1,42 @@
+
+<% if @user.allocations.any? %>
+
+<table id="allocations" class="table table-striped table-bordered table-hover">
+<thead>
+  <tr>
+    <th>No</th>
+    <th>Allocated at</th>
+    <th>Deallocated at</th>
+    <th>Ingress Bandwidth</th>
+    <th>Egress Bandwidth</th>
+    <th>Total Bandwidth Bytes</th>
+    <th>Protocol</th>
+    <th>Status</th>
+  </tr>
+</thead>
+
+<% i = 0 %>
+<tbody>
+  <% @user.allocations.each do |allocation| %>
+  <% i += 1 %>
+  <tr>
+    <td><%= i %></td>
+    <td><%= allocation.alloc_at %></td>
+    <td><%= allocation.dealloc_at %></td>
+    <td><%= allocation.ingress_data %></td>
+    <td><%= allocation.egress_data %></td>
+    <td><%= allocation.total_relay %></td>
+    <td><%= allocation.protocol %></td>
+    <td><%= if allocation.dealloc_at.blank? 
+                'Active' 
+            else 
+                'Deallocated' 
+            end %></td>
+  </tr>
+  <% end %>
+</tbody>
+
+</table>
+<% else %>
+  <p>Howdy, no allocations so far!.</p>
+<% end %>

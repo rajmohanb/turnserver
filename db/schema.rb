@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130708112749) do
+ActiveRecord::Schema.define(:version => 20130708191419) do
 
   create_table "allocations", :force => true do |t|
     t.integer  "req_lifetime"
@@ -41,6 +41,10 @@ ActiveRecord::Schema.define(:version => 20130708112749) do
     t.string   "authentication_token"
     t.datetime "created_at",                           :null => false
     t.datetime "updated_at",                           :null => false
+    t.string   "realm"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "organization"
   end
 
   add_index "customers", ["authentication_token"], :name => "index_customers_on_authentication_token", :unique => true

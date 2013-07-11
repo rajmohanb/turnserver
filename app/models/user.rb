@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+
+  before_save :ensure_authentication_token
+
   # Include default devise modules. Others available are:
   # :omniauthable, :registerable, :confirmable, :recoverable
   # :lockable, :timeoutable

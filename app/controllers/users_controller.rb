@@ -4,11 +4,29 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = current_user
+    @user = User.find(params[:id]);
   end
 
   def index
     @user = User.find(params[:id]);
+  end
+
+  def edit
+    @user = User.find(params[:id]);
+  end
+
+  def update
+    @user = User.find(params[:id])
+    if @user.update_attributes(params[:user])
+      # handle a successful update
+      flash[:success] = "Profile updated"
+      redirect_to customer_user_path(@user.customer_id, @user)
+    else
+      # print the errors to the development log
+      Rails.logger.info(@user.errors.messages.inspect)
+      flash[:error] = "Something wrong? Profile NOT updated"
+      render 'edit'
+    end
   end
 
   def create
@@ -18,15 +36,22 @@ class UsersController < ApplicationController
     @user.customer_id = params[:customer_id]
     if @user.save
         flash[:notice] = "User account successfully created"
-        render action: "index"
+        render action: "show"
     else
         logger.debug @user.errors.full_messages
         flash[:notice] = "User account creation did not go through"
         render action: "new"
     end
-    #redirect_to action: show
   end
 
   def destroy
+    @user = User.find(params[:id]);
+    if @user.destroy
+        flash[:notice] = "User account deleted"
+        redirect_to customer_path(@user.customer_id)
+    else
+        flash[:notice] = "User account deletion failed"
+        redirect_to customer_path(@user.customer_id)
+    end
   end
 end

@@ -1,16 +1,41 @@
-<h1> This is show action for customer </h1>
+<br />
+<h3><center><%= @customer.organization %></center></h3>
+<hr />
+
 
 <% if @customer.users.any? %>
+
+  <table id="allocations" class="table table-striped table-bordered table-hover">
+  <thead>
+    <tr>
+      <th>No</th>
+      <th>Email</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Number of Allocations</th>
+      <th>Bandwidth used</th>
+      <th>Edit user</th>
+      <th>Delete user</th>
+    </tr>
+  </thead>
+
   <% i = 0 %>
   <tbody>
     <% @customer.users.each do |user| %>
       <% i += 1%>
       <tr>
         <td><%= i %></td>
-        <td><%= user.first_name %><%= user.last_name %></td>
+        <td><%= link_to user.email, customer_user_path(@customer, user) %></td>
+        <td><%= user.first_name %></td>
+        <td><%= user.last_name %></td>
+        <td><%= user.allocs %></td>
+        <td><%= user.bandwidth_used %></td>
+        <td><%= link_to "Edit", edit_customer_user_path(@customer, user) %></td>
+        <td><%= link_to "Delete", customer_user_path(@customer, user), :confirm => "Are you sure?", :method => :delete %></td>
       </tr>
     <% end %>
   </tbody>
+  </table>
 <% else %>
   <p>Howdy, no users created so far!.</p>
 <%end %>

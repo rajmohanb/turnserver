@@ -6,14 +6,17 @@
       </a>
       <nav>
         <ul class="nav">
-          <li><%= link_to "Features", features_path %></li>
-          <li><%= link_to "Service Providers", features_path %></li>
-          <li><%= link_to "Enterprises", features_path %></li>
+          <% if customer_signed_in? %>
+            <li><%= link_to current_customer.organization, customer_path(current_customer) %></li>
+          <% else %>
+            <li><%= link_to "Features", features_path %></li>
+            <li><%= link_to "Service Providers", features_path %></li>
+            <li><%= link_to "Enterprises", features_path %></li>
+          <% end %>
           <li><%= link_to "Blog",     blog_path %></li>
         </ul>
         <ul class="nav pull-right">
           <% if customer_signed_in? %>
-            <li><%= link_to current_customer.email, '#' %></li>
             <li><!-- <i class="icon-user icon-white"></i> -->
             <%= link_to "Sign Out",  
                 destroy_customer_session_path, :method => :delete %></li>

@@ -1,0 +1,103 @@
+<%= form_for(resource, :html => { :class => "form-horizontal" }, :as =>resource_name , :url => { :action => "edit" }, :method => "put") do |f| %>
+
+  <!-- <%= devise_error_messages! %> -->
+
+  <fieldset>
+    <div id="legend" class="">
+      <legend class="">Form Name</legend>
+    </div>
+    <div class="control-group">
+
+      <!-- Text input-->
+      <label class="control-label" for="input01">First Name</label>
+      <div class="controls">
+        <input type="text" placeholder="Your first name" class="input-xlarge">
+          <p class="help-block"></p>
+      </div>
+    </div>
+
+    <div class="control-group">
+
+      <!-- Text input-->
+      <label class="control-label" for="input01">Last Name</label>
+      <div class="controls">
+        <input type="text" placeholder="Your last name" class="input-xlarge">
+        <p class="help-block"></p>
+      </div>
+    </div>
+
+    <div class="control-group">
+
+      <!-- Text input-->
+      <label class="control-label" for="input01">TURN username</label>
+      <div class="controls">
+        <input type="text" placeholder="username" class="input-xlarge">
+        <p class="help-block">Used during TURN protocol exchange</p>
+      </div>
+    </div>
+      
+    <div class="control-group">
+
+      <!-- Text input-->
+      <label class="control-label" for="input01">TURN secret</label>
+      <div class="controls">
+        <input type="text" placeholder="secret/password" class="input-xlarge">
+        <p class="help-block">Used during TURN protocol exchange</p>
+      </div>
+    </div>
+      
+    <div class="control-group">
+
+      <!-- Text input-->
+      <label class="control-label" for="input01">Max concurrent allocations</label>
+      <div class="controls">
+        <input type="text" placeholder="max active allocations" class="input-xlarge">
+        <p class="help-block">Maximum allowed concurrent/active allocations at any time</p>
+      </div>
+    </div>
+
+
+    <div class="control-group">
+
+      <!-- Text input-->
+      <label class="control-label" for="input01">TURN realm</label>
+      <div class="controls">
+        <input type="text" placeholder="mindbricks.com" class="input-xlarge">
+        <p class="help-block"></p>
+      </div>
+    </div>
+
+    <div class="control-group">
+
+      <!-- Text input-->
+      <label class="control-label" for="input01">Default Lifetime</label>
+      <div class="controls">
+        <input type="text" placeholder="1800" class="input-xlarge">
+        <p class="help-block">Default lifetime of the allocation in seconds if one is not given</p>
+      </div>
+    </div>
+
+    <div class="control-group">
+
+      <!-- Text input-->
+      <label class="control-label" for="input01">Maximum bandwidth</label>
+      <div class="controls">
+        <input type="text" placeholder="" class="input-xlarge">
+        <p class="help-block">Maximum allowed bandwidth</p>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label"></label>
+
+      <!-- Button -->
+      <div class="controls">
+        <!-- <button class="btn btn-primary">Save configuration</button> -->
+        <div><%= f.submit "Save Configuration", class: "btn btn-small btn-success" %></div>
+      </div>
+    </div>
+
+  </fieldset>
+</form>
+<% end %>
+

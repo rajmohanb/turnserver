@@ -1,1 +1,30 @@
-<%= New user account for @user.first_name @user.last_name created %>
+<br />
+<p class="lead">Allocation details for User: <%= @user.first_name %><%= @user.last_name %></p>
+<br />
+<!-- <hr /> -->
+
+<div class="tabbable"> <!-- Only required for left/right tabs -->
+  <ul class="nav nav-pills">
+    <li class="active"><a href="#user_home" data-toggle="tab">Account Home</a></li>
+    <li><a href="#user_alloc_list" data-toggle="tab">Allocation List</a></li>
+    <li><a href="#user_payments" data-toggle="tab">Payment History</a></li>
+    <li><a href="#user_service_reqs" data-toggle="tab">Service Requests</a></li>
+  </ul>
+  <div class="tab-content">
+    <div class="tab-pane active" id="user_home">
+        <%= render 'layouts/user_home' %>
+    </div>
+    <div class="tab-pane" id="user_alloc_list">
+      <%= render 'layouts/allocation_table' %>
+    </div>
+    <div class="tab-pane" id="user_payments">
+      <p>Howdy, no past payments history!.</p>
+    </div>
+    <div class="tab-pane" id="user_service_reqs">
+      <p>Howdy, no service requests here!.</p>
+    </div>
+  </div>
+</div>
+
+<hr />
+
