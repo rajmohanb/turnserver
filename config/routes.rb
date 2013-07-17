@@ -7,9 +7,13 @@ Turnserver::Application.routes.draw do
     resources :users
   end
 
-  namespace :api do
+  namespace :api, defaults: { format: 'json' } do
     namespace :v1 do
-      resources :users
+      resources :users do
+        collection do
+          post 'get_credentials'
+        end
+      end
     end
   end
 

@@ -1,4 +1,7 @@
 class Customer < ActiveRecord::Base
+
+  before_save :ensure_authentication_token
+
   # Include default devise modules. Others available are:
   # :omniauthable, :confirmable, :registerable, :recoverable
   # :validatable

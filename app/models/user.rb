@@ -19,4 +19,9 @@ class User < ActiveRecord::Base
   attr_accessible :max_allocs, :max_concur_allocs, :def_lifetime, 
                   :max_bandwidth, :first_name, :last_name, 
                   :turn_username, :turn_secret
+
+  #def as_json(options={})
+  #  super(:only => [:active_allocs, :allocs, :bandwidth_used, 
+  #        :email, :first_name, :last_name])
+  #end
 end
