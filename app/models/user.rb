@@ -11,6 +11,9 @@ class User < ActiveRecord::Base
   # Association with the allocation model
   has_many :allocations, dependent: :destroy
 
+  # Association with the webrtc ephemeral credentials
+  has_many :ephemeral_credentials, dependent: :destroy
+
   # Association with the customer model
   belongs_to :customer
 

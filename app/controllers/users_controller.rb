@@ -31,8 +31,8 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(params[:user]);
-    @user.email = @user.first_name + "@tt.com" #temp fix for development
-    @user.password = @user.last_name #temp fix for development
+    @user.email = @user.first_name + "@tt.com" #TODO temp fix for development
+    @user.password = @user.last_name #TODO temp fix for development
     @user.customer_id = params[:customer_id]
     if @user.save
         flash[:notice] = "User account successfully created"

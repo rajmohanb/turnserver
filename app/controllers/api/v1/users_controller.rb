@@ -1,3 +1,5 @@
+require 'securerandom'
+
 class Api::V1::UsersController < Api::V1::BaseController
   def index
     respond_with(current_customer.users, :only => [:first_name, :last_name, 
@@ -7,11 +9,23 @@ class Api::V1::UsersController < Api::V1::BaseController
   def get_credentials
     @user = User.find_by_email(params[:email]);
     unless @user
-      # respond_with({ :error => "Invalid user." })
       render :json => { :errors => "Invalid user account." }
       return
     end
-    
-    render :json => @user.as_json(:only => [:turn_username, :turn_secret])
+
+    @cred = EphemeralCredential.new()
+    # TODO - Need to generate the username based on timestamp and recvd user id?
+    @cred.username = SecureRandom.base64(16).gsub(/=+$/, '')
+    # TODO - generate the password random? or use hmac?
+    @cred.secret = SecureRandom.base64(16).gsub(/=+$/, '')
+    @cred.user_id = @user.id;
+    if @cred.save
+        render :json => @cred.as_json(:only => [:username, :secret], 
+                                      :methods => [:ttl, :uris])
+    else
+        render :json => { :errors => "Request rejected." }
+        logger.debug @cred.errors.full_messages
+    end
+
   end
 end

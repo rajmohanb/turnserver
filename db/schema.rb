@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130708191419) do
+ActiveRecord::Schema.define(:version => 20130717200544) do
 
   create_table "allocations", :force => true do |t|
     t.integer  "req_lifetime"
@@ -50,6 +50,17 @@ ActiveRecord::Schema.define(:version => 20130708191419) do
   add_index "customers", ["authentication_token"], :name => "index_customers_on_authentication_token", :unique => true
   add_index "customers", ["email"], :name => "index_customers_on_email", :unique => true
   add_index "customers", ["unlock_token"], :name => "index_customers_on_unlock_token", :unique => true
+
+  create_table "ephemeral_credentials", :force => true do |t|
+    t.string   "username"
+    t.string   "secret"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "user_id"
+  end
+
+  add_index "ephemeral_credentials", ["user_id"], :name => "index_ephemeral_credentials_on_user_id"
+  add_index "ephemeral_credentials", ["username"], :name => "index_ephemeral_credentials_on_username", :unique => true
 
   create_table "users", :force => true do |t|
     t.string   "email",                :default => "", :null => false
