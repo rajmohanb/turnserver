@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130717200544) do
+ActiveRecord::Schema.define(:version => 20130722172309) do
 
   create_table "allocations", :force => true do |t|
     t.integer  "req_lifetime"
@@ -19,9 +19,14 @@ ActiveRecord::Schema.define(:version => 20130717200544) do
     t.integer  "bandwidth_used"
     t.datetime "alloc_at"
     t.datetime "dealloc_at"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
     t.integer  "user_id"
+    t.string   "protocol"
+    t.integer  "ingress_data"
+    t.integer  "egress_data"
+    t.integer  "total_relay"
+    t.integer  "alloc_handle",      :limit => 8
   end
 
   add_index "allocations", ["user_id"], :name => "index_allocations_on_user_id"
