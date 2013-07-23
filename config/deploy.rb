@@ -4,7 +4,7 @@ require 'bundler/capistrano'
 set :application, "SeamConnect.com"
 set :scm,         :git
 set :repository,  "git@github.com:rajmohanb/turnserver.git"
-set :branch,      "add_devise_company_model"
+set :branch,      "master"
 #set :scm_passphrase, ""
 #set :scm_verbose, true
 
