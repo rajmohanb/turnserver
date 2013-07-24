@@ -1,6 +1,9 @@
 require 'securerandom'
 
 class Api::V1::UsersController < Api::V1::BaseController
+
+  after_filter: cors_set_access_control_headers
+
   def index
     respond_with(current_customer.users, :only => [:first_name, :last_name, 
                  :active_allocs, :allocs, :bandwidth_used, :email])
@@ -27,5 +30,12 @@ class Api::V1::UsersController < Api::V1::BaseController
         logger.debug @cred.errors.full_messages
     end
 
+  end
+
+  # For all responses in this controller, return the CORS access control headers.
+  def cors_set_access_control_headers
+    headers['Access-Control-Allow-Origin'] = '*'
+    headers['Access-Control-Allow-Methods'] = 'POST'
+    headers['Access-Control-Max-Age'] = "1728000"
   end
 end
