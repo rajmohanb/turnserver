@@ -31,24 +31,13 @@
     <div class="control-group">
 
       <!-- Text input-->
-      <%= f.label :turn_username, :class => "control-label" %>
+      <%= f.label :email, :class => "control-label" %>
       <div class="controls">
-        <%= f.text_field :turn_username, :class => "input-xlarge" %>
-        <p class="help-block"><small>Used during TURN protocol exchange</small></p>
+        <%= f.text_field :email, :class => "input-xlarge" %>
+        <p class="help-block"><small>Email id for REST API and web login</small></p>
       </div>
     </div>
       
-    <div class="control-group">
-
-      <!-- Text input-->
-      <%= f.label :turn_secret, :class => "control-label" %>
-      <div class="controls">
-        <%= f.text_field :turn_secret, :class => "input-xlarge" %>
-        <p class="help-block"><small>Used during TURN protocol exchange. Must be atleast 8 chars.</small></p>
-      </div>
-    </div>
-      
-
     <div class="control-group">
 
       <!-- Text input-->

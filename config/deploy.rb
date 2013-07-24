@@ -48,6 +48,7 @@ set :default_environment, {
 
 after "deploy", "deploy:migrate"
 after "deploy:migrate", "deploy:restart"
+after "deploy:restart", "deploy:cleanup" 
 #after "deploy", "deploy:bundle_gems"
 #after "deploy:bundle_gems", "deploy:restart"
 # before "deploy:assets:precompile"
