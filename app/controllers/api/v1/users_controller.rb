@@ -2,7 +2,7 @@ require 'securerandom'
 
 class Api::V1::UsersController < Api::V1::BaseController
 
-  after_filter: cors_set_access_control_headers
+  after_filter: cors_set_access_control_headers, :only => [:get_credentials]
 
   def index
     respond_with(current_customer.users, :only => [:first_name, :last_name, 
@@ -36,6 +36,7 @@ class Api::V1::UsersController < Api::V1::BaseController
   def cors_set_access_control_headers
     headers['Access-Control-Allow-Origin'] = '*'
     headers['Access-Control-Allow-Methods'] = 'POST'
+    headers['Access-Control-Request-Method'] = '*'
     headers['Access-Control-Max-Age'] = "1728000"
   end
 end
