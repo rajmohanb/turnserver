@@ -2,7 +2,7 @@ require 'securerandom'
 
 class Api::V1::UsersController < Api::V1::BaseController
 
-  after_filter: cors_set_access_control_headers, :only => [:get_credentials]
+  after_filter :cors_set_access_control_headers, :only => [:get_credentials]
 
   def index
     respond_with(current_customer.users, :only => [:first_name, :last_name, 
