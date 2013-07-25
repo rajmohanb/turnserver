@@ -19,6 +19,8 @@ Turnserver::Application.routes.draw do
 
   root to: 'site#home'
 
+  match '/api/v1/users/get_credentials.json', :controller => 'api/v1/users', :action => 'options', :constraints => { :method => 'OPTIONS'}
+
   match '/home', to: 'site#home'
   match '/about', to: 'site#about'
   match '/features', to: 'site#features'

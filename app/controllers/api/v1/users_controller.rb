@@ -2,7 +2,8 @@ require 'securerandom'
 
 class Api::V1::UsersController < Api::V1::BaseController
 
-  after_filter :cors_set_access_control_headers, :only => [:get_credentials]
+  before_filter :cors_preflight_check
+  after_filter :cors_set_access_control_headers #, :only => [:get_credentials]
 
   def index
     respond_with(current_customer.users, :only => [:first_name, :last_name, 
@@ -22,6 +23,7 @@ class Api::V1::UsersController < Api::V1::BaseController
     # TODO - generate the password random? or use hmac?
     @cred.secret = SecureRandom.base64(16).gsub(/=+$/, '')
     @cred.user_id = @user.id;
+    logger.debug "Received get credentials for user: #{@user.first_name} and id: #{@cred.user_id}"
     if @cred.save
         render :json => @cred.as_json(:only => [:username, :secret], 
                                       :methods => [:ttl, :uris])
@@ -32,11 +34,40 @@ class Api::V1::UsersController < Api::V1::BaseController
 
   end
 
+  # if this is a preflight OPTIONS request, then short-circuit the request,
+  # return only the necessary headers and return an empty text/plain.
+  def  cors_preflight_check
+    if request.method == :options
+      logger.error 'In cors_preflight_check'
+      cors_set_access_control_headers 
+      head :ok
+    end
+  end
+
+  def options
+    logger.error 'In options action handler'
+    render text: ''
+  end
+
+
+  private
   # For all responses in this controller, return the CORS access control headers.
   def cors_set_access_control_headers
-    headers['Access-Control-Allow-Origin'] = '*'
-    headers['Access-Control-Allow-Methods'] = 'POST'
-    headers['Access-Control-Request-Method'] = '*'
-    headers['Access-Control-Max-Age'] = "1728000"
+    logger.error 'In cors_set_access_control_headers'
+    headers['Access-Control-Allow-Origin'] = request.env['HTTP_ORIGIN']
+    headers['Access-Control-Allow-Methods'] = 'POST, OPTIONS'
+    # headers['Access-Control-Request-Method'] = '*'
+    #headers['Access-Control-Allow-Headers'] = request.headers['Content-Type'] if request.headers['Content-Type']
+    headers['Access-Control-Allow-Headers'] = 'Content-Type'
+    headers['Access-Control-Max-Age'] = "1000"
   end
+
+
+  #def set_access_control_headers
+  #  headers['Access-Control-Allow-Origin'] = '*'
+  #  headers['Access-Control-Allow-Methods'] = 'POST, OPTIONS'
+  #  # headers['Access-Control-Allow-Headers'] = 
+  #  headers['Access-Control-Max-Age'] = '1728000'
+  #  #render :text => '', :content_type => 'text/plain'
+  #end
 end
