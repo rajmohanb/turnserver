@@ -10,8 +10,8 @@ class EphemeralCredential < ActiveRecord::Base
   end
 
   def uris
-    #["turn:127.0.0.1:3478?transport=udp"]
-    #["turn:50.116.13.218:3478?transport=udp"]
-    ["turn:50.116.13.218:3478"]
+    #["turn:127.0.0.1:3478"]
+    ["turn:50.116.13.218:3478?transport=udp"]
+    #["turn:50.116.13.218:3478"]
   end
 end
