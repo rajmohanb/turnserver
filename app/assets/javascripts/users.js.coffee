@@ -13,5 +13,6 @@ jQuery ->
     "aoColumnDefs": [
         { "bSortable": false, "aTargets": [0] }
       ],
-    "aaSorting": [[ 1, 'desc' ]]
+    "aaSorting": [[ 1, 'desc' ]],
+    "iDisplayLength": 50
   });
