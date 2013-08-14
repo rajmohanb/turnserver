@@ -28,7 +28,7 @@
         <td><%= link_to user.email, customer_user_path(@customer, user) %></td>
         <td><%= user.first_name %></td>
         <td><%= user.last_name %></td>
-        <td><%= user.allocs %></td>
+        <td><%= user.allocations.count %></td>
         <td><%= user.bandwidth_used %></td>
         <td><%= link_to "Edit", edit_customer_user_path(@customer, user) %></td>
         <td><%= link_to "Delete", customer_user_path(@customer, user), :confirm => "Are you sure?", :method => :delete %></td>
