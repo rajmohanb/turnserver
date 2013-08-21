@@ -23,9 +23,9 @@
     <td><%= i %></td>
     <td><%= allocation.alloc_at %></td>
     <td><%= allocation.dealloc_at %></td>
-    <td><%= allocation.ingress_data %></td>
-    <td><%= allocation.egress_data %></td>
-    <td><%= allocation.total_relay %></td>
+    <td><% unless allocation.ingress_data.nil? %> <%= allocation.ingress_data/1024 %> <% end %> Kb</td>
+    <td><% unless allocation.egress_data.nil? %> <%= allocation.egress_data/1024 %> <% end %> Kb</td>
+    <td><% unless allocation.total_relay.nil? %> <%= allocation.total_relay/1024 %> <% end %> Kb</td>
     <td><%= allocation.protocol %></td>
     <td><%= if allocation.dealloc_at.blank? 
                 'Active' 
