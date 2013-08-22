@@ -5,14 +5,14 @@
 
 <div class="tabbable"> <!-- Only required for left/right tabs -->
   <ul class="nav nav-pills">
-    <li class="active"><a href="#user_home" data-toggle="tab">Account Home</a></li>
-    <li><a href="#user_alloc_list" data-toggle="tab">Allocation List</a></li>
+    <li><a href="#user_home" data-toggle="tab">User Home</a></li>
+    <li class="active"><a href="#user_alloc_list" data-toggle="tab">User Allocation List</a></li>
   </ul>
   <div class="tab-content">
-    <div class="tab-pane active" id="user_home">
+    <div class="tab-pane" id="user_home">
         <%= render 'layouts/user_home' %>
     </div>
-    <div class="tab-pane" id="user_alloc_list">
+    <div class="tab-pane active" id="user_alloc_list">
       <%= render 'layouts/allocation_table' %>
     </div>
   </div>

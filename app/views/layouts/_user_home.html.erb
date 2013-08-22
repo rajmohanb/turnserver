@@ -3,7 +3,7 @@
 <p class="text-info"> Configured Max Allocations: <%= @user.max_allocs %> </p>
 <p class="text-info"> Configured Max Concurrent Allocations: <%= @user.max_concur_allocs %> </p>
 <p class="text-info"> Default Lifetime : <%= @user.def_lifetime %> </p>
-<p class="text-info"> Maximum Bandwidth : <%= @user.max_bandwidth %> </p>
-<p class="text-info"> TURN username : <%= @user.turn_username %> </p>
+<p class="text-info"> Maximum Bandwidth : <%= @user.max_bandwidth %> MB</p>
+<p class="text-info"> Bandwidth User so far : <%= @user.bandwidth_used/(1024 * 1024) %> MB</p>
 <hr />
 
