@@ -59,10 +59,10 @@ body.pull_top {
 
 
 
-.hero-unit {
+/*.hero-unit { */
     /* background: url(/cloud_nat.jpg); */
     /* background-color: #ffffff; */
-}
+/* } */
 
 .navbar.transparent.navbar-inverse .navbar-inner {
     /* background: rgba(0,0,0,0.4); */
@@ -281,4 +281,14 @@ header nav ul li {
   box-shadow: 0 1px 2px rgba(0,0,0,.15);
 }
 
+.features_spacer {
+    margin-top: 60px; /* define margin as you see fit */
+}
 
+.features_li_padded {
+    padding: 10px;
+}
+
+.features_h4_padded {
+    padding: 25px;
+}
