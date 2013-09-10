@@ -1,0 +1,43 @@
+<div id="mypush"></div>
+
+<%= form_for @message, :html => { class: "form-signin form-horizontal"}, :url => { class: "contactus", action: "create" } do |f| %>
+
+  <h2 class="form-signin-heading">Contact us</h2>
+
+  <% if @message.errors.any? %>
+    <div class="error_messages">
+      <h2><%= pluralize(@message.errors.count, "error") %> prohibited this message from being processed:</h2>
+      <ul>
+      <% @message.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: "input-block-level" %>
+  </div>
+  <br />
+  <div class="field">
+    <%= f.label :email %>
+    <%= f.text_field :email, class: "input-block-level" %>
+  </div>
+  <br />
+  <div class="field">
+    <%= f.label :Origanization %>
+    <%= f.text_field :company, class: "input-block-level" %>
+  </div>
+  <br />
+  <div class="field">
+    <%= f.label :subject %>
+    <%= f.text_field :subject, class: "input-block-level" %>
+  </div>
+  <br />
+  <div class="field">
+    <%= f.label :content, "Message" %>
+    <%= f.text_area :content, :rows => 5, class: "input-block-level" %>
+  </div>
+  <br />
+  <div class="actions"><%= f.submit "Send Message" %></div>
+<% end %>

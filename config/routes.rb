@@ -17,10 +17,13 @@ Turnserver::Application.routes.draw do
     end
   end
 
+  resources :messages, only: [:new, :create]
+
   root to: 'site#home'
 
   match '/api/v1/users/get_credentials.json', :controller => 'api/v1/users', :action => 'options', :constraints => { :method => 'OPTIONS'}
 
+  match '/contact',   to:'messages#new'
   match '/home', to: 'site#home'
   match '/about', to: 'site#about'
   match '/features', to: 'site#features'
@@ -28,7 +31,6 @@ Turnserver::Application.routes.draw do
   match '/blog', to: 'site#blog'
   match '/privacy', to: 'site#privacy'
   match '/terms', to: 'site#terms'
-  match '/contact', to: 'site#contact'
 
 
   # The priority is based upon order of creation:
