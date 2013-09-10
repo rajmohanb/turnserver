@@ -15,17 +15,11 @@
     <link rel="apple-touch-icon" sizes="114x114" href="twitter-bootstrap-v2/docs/examples/images/apple-touch-icon-114x114.png">
   </head>
   <body>
-    <div id="mywrap">
-      <div id="container">
+    <div id="container">
       <%= render 'layouts/messages' %>
       <%= render 'layouts/header' %>
-      <div class="container-fluid">
-        <div class="row-fluid">
-          <%= yield %>
-        </div>
-      </div>
+      <%= yield %>
       <div id="mypush"></div>
-      </div>
     </div>
     <div id="myfooter">
       <%= render 'layouts/footer' %>

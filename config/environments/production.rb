@@ -64,4 +64,20 @@ Turnserver::Application.configure do
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
+  #
+
+  # for devise
+  config.action_mailer.default_url_options = { :host => 'www.seamconnect.com' }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :address   => "smtp.mandrillapp.com",
+    :port      => 587, # ports 25 and 2525 are also supported with STARTTLS
+    :enable_starttls_auto => true, # detects and uses STARTTLS
+    :user_name => "rajmohan@seamconnect.com",
+    :password  => "Fcx7G2yMlHi5-Gp-K6pB9w", # SMTP password is any valid API key
+    :authentication => 'login' # Mandrill supports 'plain' or 'login'
+  }
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+
 end

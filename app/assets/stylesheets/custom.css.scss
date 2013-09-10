@@ -16,6 +16,10 @@ body.pull_top {
   background-color: rgb(209, 255, 255);
 }
 
+.span4 {
+  margin-left: right;
+}
+
 #allocations1 {
   font-size: 85%;
   td {
@@ -58,15 +62,7 @@ body.pull_top {
 }
 
 
-
-/*.hero-unit { */
-    /* background: url(/cloud_nat.jpg); */
-    /* background-color: #ffffff; */
-/* } */
-
 .navbar.transparent.navbar-inverse .navbar-inner {
-    /* background: rgba(0,0,0,0.4); */
-    /* background: rgba(111,100,236,0.4); */
     border-bottom: 1px solid rgb(88, 88, 88);
     color: #6f64ec
 }
@@ -74,7 +70,7 @@ body.pull_top {
 .navbar.transparent.navbar-inverse .navbar-inner .container {
     background: rgba(0,136,204,0.4);
     color: #6f64ec;
-    /* margin-top: 10px; */
+    margin-top: 10px;
     margin-bottom: 0px;
     -webkit-transition: margin .2s ease-in-out;
     -moz-transition: margin .2s ease-in-out;
@@ -86,7 +82,6 @@ body.pull_top {
 }
 
 .navbar-inverse .navbar-inner {
-  /* background-color: #357fcf; */
   background-color: #005596;
   background-image: -moz-linear-gradient(top, #357fcf, #357fcf);
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#357fcf), to(#357fcf));
@@ -114,15 +109,7 @@ html {
 
 html,
 body {
-  height: 100%;
   font-family: 'Arvo', sans-serif;
-}
-
-#mywrap {
-  min-height: 100%;
-  height: auto !important;
-  height: 100%;
-  margin: 0 auto -60px;
 }
 
 #mypush,
@@ -164,14 +151,19 @@ h2 {
   margin-bottom: 30px;
   text-align: center;
   font-weight: normal;
-  color: $grayLight;
+  /* color: $grayLight; */
+  color: #0a0a0a;
 }
 
 p {
-  font-size: 1.1em;
+  /* font-size: 1.1em; */
   line-height: 1.7em;
 }
 
+
+#homerow {
+  margin-left: 20px;
+} 
 
 /* header */
 
@@ -194,6 +186,7 @@ p {
 header {
     background: rgba(0,0,0,.6) !important;
 }
+
 
 /* footer */
 
@@ -272,7 +265,7 @@ header nav ul li {
 .content {
   background-color: #eee;
   padding: 20px;
-  margin: 0 -20px; /* negative indent the amount of the padding to maintain the grid system */
+  /* margin: 0 -20px; *//* negative indent the amount of the padding to maintain the grid system */
   -webkit-border-radius: 0 0 6px 6px;
   -moz-border-radius: 0 0 6px 6px;
   border-radius: 0 0 6px 6px;
@@ -292,3 +285,34 @@ header nav ul li {
 .features_h4_padded {
     padding: 25px;
 }
+
+
+.form-signin {
+  max-width: 300px;
+  padding: 19px 29px 29px;
+  margin: 0 auto 20px;
+  background-color: #fff;
+  border: 1px solid #e5e5e5;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+  -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+  box-shadow: 0 1px 2px rgba(0,0,0,.05);
+}
+
+
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+  margin-bottom: 10px;
+}
+
+
+.form-signin input[type="text"],
+.form-signin input[type="password"] {
+  font-size: 16px;
+  height: auto;
+  margin-bottom: 15px;
+  padding: 7px 9px;
+}
+
