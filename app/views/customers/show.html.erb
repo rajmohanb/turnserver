@@ -30,8 +30,8 @@
         <td><%= user.last_name %></td>
         <td><%= user.allocations.count %></td>
         <td><%= user.bandwidth_used/(1024 * 1024) %> MB</td>
-        <td><%= link_to "Edit", edit_customer_user_path(@customer, user) %></td>
-        <td><%= link_to "Delete", customer_user_path(@customer, user), :confirm => "Are you sure?", :method => :delete %></td>
+        <td><%= link_to "Edit", edit_customer_user_path(@customer, user), class: "btn btn-info" %></td>
+        <td><%= link_to "Delete", customer_user_path(@customer, user), class: "btn btn-danger", :confirm => "Are you sure?", :method => :delete %></td>
       </tr>
     <% end %>
   </tbody>
@@ -40,4 +40,4 @@
   <p>Howdy, no users created so far!.</p>
 <%end %>
 
-<%= link_to "Add user?", new_customer_user_path(current_customer) %>
+<%= link_to "Add new user?", new_customer_user_path(current_customer), class: "btn btn-success" %>
