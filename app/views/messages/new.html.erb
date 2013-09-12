@@ -1,6 +1,6 @@
-<div id="mypush"></div>
+<div id="contactpush"></div>
 
-<%= form_for @message, :html => { class: "form-signin form-horizontal"}, :url => { class: "contactus", action: "create" } do |f| %>
+<%= form_for @message, :html => { class: "form-contact form-horizontal"} do |f| %>
 
   <h2 class="form-signin-heading">Contact us</h2>
 
@@ -14,30 +14,26 @@
       </ul>
     </div>
   <% end %>
-  <div class="field">
+
+  <div class="control-group">
     <%= f.label :name %>
     <%= f.text_field :name, class: "input-block-level" %>
   </div>
-  <br />
-  <div class="field">
+  <div class="control-group">
     <%= f.label :email %>
     <%= f.text_field :email, class: "input-block-level" %>
   </div>
-  <br />
-  <div class="field">
-    <%= f.label :Origanization %>
+  <div class="control-group">
+    <%= f.label :Organization %>
     <%= f.text_field :company, class: "input-block-level" %>
   </div>
-  <br />
-  <div class="field">
+  <div class="control-group">
     <%= f.label :subject %>
     <%= f.text_field :subject, class: "input-block-level" %>
   </div>
-  <br />
-  <div class="field">
+  <div class="control-group">
     <%= f.label :content, "Message" %>
-    <%= f.text_area :content, :rows => 5, class: "input-block-level" %>
+    <%= f.text_area :content, :rows => 8, class: "input-block-level" %>
   </div>
-  <br />
-  <div class="actions"><%= f.submit "Send Message" %></div>
+  <div class="actions"><%= f.submit "Send Message", class: "btn btn-success" %></div>
 <% end %>

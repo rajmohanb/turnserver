@@ -110,7 +110,13 @@ html {
 html,
 body {
   height: 100%; 
-  font-family: 'Arvo', sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  /* font-size: 0.85em;*/
+  /* line-height: 1.9em; */
+  line-height: 17px;
+  color: #1f1f1f;
+  /* font-family: 'Arvo', sans-serif; */
 }
 
 
@@ -164,11 +170,12 @@ h2 {
   font-weight: normal;
   /* color: $grayLight; */
   color: #0a0a0a;
+  /* line-height: 1.8em; */
 }
 
 p {
   /* font-size: 1.1em; */
-  line-height: 1.7em;
+  line-height: 1.8em;
 }
 
 
@@ -327,4 +334,24 @@ header nav ul li {
   margin-bottom: 15px;
   padding: 7px 9px;
 }
+
+
+.form-contact {
+  max-width: 360px;
+  padding: 19px 29px 29px;
+  margin: 0 auto 20px;
+  background-color: #fff;
+  border: 1px solid #e5e5e5;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+  -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+  box-shadow: 0 1px 2px rgba(0,0,0,.05);
+}
+
+#contactpush {
+  height: 30px;
+}
+
 
