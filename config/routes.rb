@@ -25,7 +25,7 @@ Turnserver::Application.routes.draw do
 
   match '/contact',   to:'messages#new'
   match '/home', to: 'site#home'
-  match '/about', to: 'site#about'
+  #match '/about', to: 'site#about'
   match '/features', to: 'site#features'
   match '/pricing', to: 'site#pricing'
   match '/blog', to: 'site#blog'
