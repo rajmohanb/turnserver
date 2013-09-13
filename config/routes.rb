@@ -30,7 +30,7 @@ Turnserver::Application.routes.draw do
   match '/pricing', to: 'site#pricing'
   match '/blog', to: 'site#blog'
   match '/privacy', to: 'site#privacy'
-  match '/terms', to: 'site#terms'
+  match '/tos', to: 'site#tos'
 
 
   # The priority is based upon order of creation:
