@@ -7,6 +7,7 @@
       </a>
       <nav>
         <ul class="nav">
+          <li><%= link_to "FAQ", faq_path %></li>
           <% if customer_signed_in? %>
             <li><%= link_to current_customer.organization, customer_path(current_customer) %></li>
             <li id="fat-menu" class="dropdown">
@@ -22,7 +23,7 @@
             <!-- <li><%#= link_to "Service Providers", features_path %></li> -->
             <li><%= link_to "Enterprise", enterprise_path %></li>
           <% end %>
-          <li><%= link_to "Blog",     blog_path %></li>
+          <li><%= link_to "Blog", blog_path %></li>
         </ul>
         <ul class="nav pull-right">
           <% if customer_signed_in? %>
