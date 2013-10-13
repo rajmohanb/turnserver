@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
       current_customer
       # super
     else
-      logger.fatal "This is the user path: #{current_user} : #{user_url(current_user)}"
+      logger.fatal "This is the user path: #{current_customer} : #{customer_url(current_customer)}"
       logger.fatal "This is the stored resource path: #{stored_location_for(resource)}"
       logger.fatal "This is the referrer path: #{request.referrer}"
       customer_url(resource) || stored_location_for(resource) || request.referer
