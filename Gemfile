@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.14'
+gem 'rails', '3.2.18'
 gem 'devise', '2.2.4'
 
 # Bundle edge Rails instead:
