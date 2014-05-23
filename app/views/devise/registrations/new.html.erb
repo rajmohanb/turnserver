@@ -1,24 +1,35 @@
 
-<div id="mypush"></div>
+<div id="signup-form-margin"></div>
 
-<%= form_for(resource, :html => { :class => "form-signin form-horizontal" }, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+<%= form_for(resource, :html => { :class => "form-signup form-horizontal" }, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
 
   <h2 class="form-signin-heading">Sign up for free account</h2>
-  <br />
 
   <%= devise_error_messages! %>
 
   <div><%= f.label :email %>
-  <%= f.email_field :email, :autofocus => true %></div>
+  <%= f.email_field :email, :autofocus => true, :required => true %></div>
 
   <div><%= f.label :password %>
-  <%= f.password_field :password %></div>
+  <%= f.password_field :password, :required => true %></div>
 
   <div><%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation %></div>
+  <%= f.password_field :password_confirmation, :required => true %></div>
 
-  <div><%= f.submit "Sign up", class: "btn btn-large btn-primary" %></div>
-  </fieldset>
+  <div><%= f.label :first_name %>
+  <%= f.text_field :first_name, :required => true %></div>
+
+  <div><%= f.label :last_name %>
+  <%= f.text_field :last_name, :required => true %></div>
+
+  <div><%= f.label :organization %>
+  <%= f.text_field :organization, :required => true %></div>
+
+  <div>
+  <p class="help-block"><h6>By clicking on "Sign up for free" below, you agree to the <%= link_to "Terms of Service", tos_path %> and the <%= link_to "Privacy", privacy_path %> Policy.</h6></p>
+  </div>
+
+  <div><%= f.submit "Sign up", class: "btn btn-default btn-success" %></div>
 <% end %>
 
 <%- #<%= render "devise/shared/links" %>
