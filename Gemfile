@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.18'
-gem 'devise', '2.2.4'
+gem 'devise', '2.2.8'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -9,11 +9,12 @@ gem 'devise', '2.2.4'
 group :development, :test do
   # gem 'sqlite3', '1.3.5'
   gem 'rspec-rails', '2.11.0'
-  gem 'capistrano'
+  gem 'capistrano', '2.11.2'
 end
 
 group :development do
   gem 'annotate', '2.5.0'
+  gem 'net-ssh', '2.7.0'
 end
 
 gem 'pg', '0.14.1'

@@ -1,5 +1,11 @@
 @import "bootstrap";
-body { padding-top: 40px; }
+body { 
+    padding-top: 40px;
+    /* background: url('abstract-communication-hd-446574.jpg');*/
+    /* background-size: cover;*/
+    /* color: #fff;*/
+    /* background-color: #333;*/
+}
 @import "bootstrap-responsive";
 
 body.pull_top {
@@ -376,4 +382,8 @@ header nav ul li {
   height: 30px;
 }
 
-
+.vert-text {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
