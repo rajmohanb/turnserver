@@ -3,6 +3,17 @@ Turnserver::Application.routes.draw do
   devise_for :customers
   devise_for :users
 
+  match '/contact',   to:'messages#new'
+  match '/home', to: 'site#home'
+  #match '/about', to: 'site#about'
+  match '/features', to: 'site#features'
+  match '/pricing', to: 'site#pricing'
+  match '/blog', to: 'site#blog'
+  match '/privacy', to: 'site#privacy'
+  match '/tos', to: 'site#tos'
+  match '/enterprise', to: 'site#enterprise'
+  match '/faq', to: 'site#faq'
+
   # source - http://jasoncodes.com/posts/rails-3-nested-resource-slugs
   resources :customers, :path => '', :except => [:index]
   resources :customers, :path => '', :only => [] do
@@ -24,17 +35,6 @@ Turnserver::Application.routes.draw do
   root to: 'site#home'
 
   match '/api/v1/users/get_credentials.json', :controller => 'api/v1/users', :action => 'options', :constraints => { :method => 'OPTIONS'}
-
-  match '/contact',   to:'messages#new'
-  match '/home', to: 'site#home'
-  #match '/about', to: 'site#about'
-  match '/features', to: 'site#features'
-  match '/pricing', to: 'site#pricing'
-  match '/blog', to: 'site#blog'
-  match '/privacy', to: 'site#privacy'
-  match '/tos', to: 'site#tos'
-  match '/enterprise', to: 'site#enterprise'
-  match '/faq', to: 'site#faq'
 
 
   # The priority is based upon order of creation:
