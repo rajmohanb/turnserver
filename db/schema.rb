@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140522092027) do
+ActiveRecord::Schema.define(:version => 20140525045505) do
 
   create_table "allocations", :force => true do |t|
     t.integer  "req_lifetime"
@@ -56,12 +56,14 @@ ActiveRecord::Schema.define(:version => 20140522092027) do
     t.string   "unconfirmed_email"
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
+    t.string   "slug"
   end
 
   add_index "customers", ["authentication_token"], :name => "index_customers_on_authentication_token", :unique => true
   add_index "customers", ["confirmation_token"], :name => "index_customers_on_confirmation_token", :unique => true
   add_index "customers", ["email"], :name => "index_customers_on_email", :unique => true
   add_index "customers", ["reset_password_token"], :name => "index_customers_on_reset_password_token", :unique => true
+  add_index "customers", ["slug"], :name => "index_customers_on_slug"
   add_index "customers", ["unlock_token"], :name => "index_customers_on_unlock_token", :unique => true
 
   create_table "ephemeral_credentials", :force => true do |t|
@@ -99,10 +101,12 @@ ActiveRecord::Schema.define(:version => 20140522092027) do
     t.integer  "active_allocs",        :default => 0
     t.integer  "bandwidth_used",       :default => 0
     t.string   "turn_username"
+    t.string   "slug"
   end
 
   add_index "users", ["authentication_token"], :name => "index_users_on_authentication_token", :unique => true
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
+  add_index "users", ["slug"], :name => "index_users_on_slug"
   add_index "users", ["turn_username"], :name => "index_users_on_turn_username"
 
 end

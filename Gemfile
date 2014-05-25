@@ -17,6 +17,8 @@ group :development do
   gem 'net-ssh', '2.7.0'
 end
 
+gem 'friendly_id', '4.0.10.1'
+
 gem 'pg', '0.14.1'
 
 gem 'whenever', :require => false

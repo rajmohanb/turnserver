@@ -1,5 +1,8 @@
 class User < ActiveRecord::Base
 
+  extend FriendlyId
+  friendly_id :first_name, use: :slugged
+
   before_save :ensure_authentication_token
 
   # Include default devise modules. Others available are:

@@ -3,8 +3,8 @@ Turnserver::Application.routes.draw do
   devise_for :customers
   devise_for :users
 
-  resources :customers do
-    resources :users
+  resources :customers, :path => '', :except => [:index] do
+    resources :users, :path => '', :except => [:index]
   end
 
   namespace :api, defaults: { format: 'json' } do
