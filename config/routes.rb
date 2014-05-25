@@ -3,7 +3,8 @@ Turnserver::Application.routes.draw do
   devise_for :customers
   devise_for :users
 
-  resources :customers, :path => '', :except => [:index] do
+  resources :customers, :path => '', :except => [:index]
+  resources :customers, :path => '', :only => [] do
     resources :users, :path => '', :except => [:index]
   end
 
