@@ -3,6 +3,7 @@ Turnserver::Application.routes.draw do
   devise_for :customers
   devise_for :users
 
+  # source - http://jasoncodes.com/posts/rails-3-nested-resource-slugs
   resources :customers, :path => '', :except => [:index]
   resources :customers, :path => '', :only => [] do
     resources :users, :path => '', :except => [:index]
