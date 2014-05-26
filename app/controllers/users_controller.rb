@@ -36,7 +36,8 @@ class UsersController < ApplicationController
     #@user.email = @user.first_name + "@tt.com" #TODO temp fix for development
     #@user.password = @user.last_name #TODO temp fix for development
     @user.password = SecureRandom.base64(16).gsub(/=+$/, '')
-    @user.customer_id = params[:customer_id]
+    @user.customer_id = Customer.find(params[:customer_id]).id
+    #@user.customer_id = params[:customer_id]
     if @user.save
         flash[:notice] = "User account successfully created"
         render action: "show"
