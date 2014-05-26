@@ -14,6 +14,8 @@ Turnserver::Application.routes.draw do
   match '/enterprise', to: 'site#enterprise'
   match '/faq', to: 'site#faq'
 
+  resources :messages, only: [:new, :create]
+
   # source - http://jasoncodes.com/posts/rails-3-nested-resource-slugs
   resources :customers, :path => '', :except => [:index]
   resources :customers, :path => '', :only => [] do
@@ -29,8 +31,6 @@ Turnserver::Application.routes.draw do
       end
     end
   end
-
-  resources :messages, only: [:new, :create]
 
   root to: 'site#home'
 
