@@ -8,7 +8,7 @@ $(document).ready(function(){
     $('.alert-temp').remove();
   }
 
-  window.setTimeout(fadeAlert,1000);
+  window.setTimeout(fadeAlert,4000);
   window.setTimeout(removeAlert,3000);
 
 });
