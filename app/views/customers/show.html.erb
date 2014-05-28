@@ -12,7 +12,8 @@
       <th>Email</th>
       <th>First Name</th>
       <th>Last Name</th>
-      <th>Number of Allocations</th>
+      <th>No of Allocations</th>
+      <th>Active Allocations</th>
       <th>Bandwidth used</th>
       <th>Edit user</th>
       <th>Delete user</th>
@@ -28,7 +29,8 @@
         <td><%= link_to user.email, customer_user_path(@customer, user) %></td>
         <td><%= user.first_name %></td>
         <td><%= user.last_name %></td>
-        <td><%= user.allocations.count %></td>
+        <td><%= user.allocs %></td>
+        <td><%= user.active_allocs %></td>
         <td><%= user.bandwidth_used/(1024 * 1024) %> MB</td>
         <td><%= link_to "Edit", edit_customer_user_path(@customer, user), class: "btn btn-info" %></td>
         <td><%= link_to "Delete", customer_user_path(@customer, user), class: "btn btn-danger", :confirm => "Are you sure?", :method => :delete %></td>
