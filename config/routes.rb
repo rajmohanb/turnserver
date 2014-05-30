@@ -16,10 +16,15 @@ Turnserver::Application.routes.draw do
 
   resources :messages, only: [:new, :create]
 
+  root to: 'site#home'
+
+  match '/api/v1/users/get_credentials.json', :controller => 'api/v1/users', :action => 'options', :constraints => { :method => 'OPTIONS'}
+
   # source - http://jasoncodes.com/posts/rails-3-nested-resource-slugs
-  resources :customers, :path => '', :except => [:index]
+  resources :customers, :path => ''
   resources :customers, :path => '', :only => [] do
-    resources :users, :path => '', :except => [:index]
+    resources :users, :path => '', :only => [:new, :index, :edit, :update, :create, :destroy]
+    #resources :users, :path => '', :except => [:index]
   end
 
   namespace :api, defaults: { format: 'json' } do
@@ -31,10 +36,6 @@ Turnserver::Application.routes.draw do
       end
     end
   end
-
-  root to: 'site#home'
-
-  match '/api/v1/users/get_credentials.json', :controller => 'api/v1/users', :action => 'options', :constraints => { :method => 'OPTIONS'}
 
 
   # The priority is based upon order of creation:
