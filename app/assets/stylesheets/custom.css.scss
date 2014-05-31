@@ -259,8 +259,8 @@ header {
 
 footer {
   /* margin-top: 45px; */
-  margin-top: 5px;
-  padding-top: 5px;
+  /* margin-top: 5px; */
+  /* padding-top: 5px; */
   border-top: 1px solid $grayMediumLight;
   color: $grayLight;
   a {
@@ -461,5 +461,13 @@ label{
 }
 
 .hero-unit {
-  background-color: rgba(255,255,255,0.0);
+  /* background-color: #5084C0; */
+  background-color: #AAC9EC;
+  /* background-color: rgba(80,132,192,0.0); */
+  /* background: url('world_map_blue_world_map_84261552.jpg');*/
 }
+
+.service-info {
+  font-family: 'Raleway', sans-serif;
+}
+
