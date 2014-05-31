@@ -23,7 +23,7 @@ Turnserver::Application.routes.draw do
   # source - http://jasoncodes.com/posts/rails-3-nested-resource-slugs
   resources :customers, :path => ''
   resources :customers, :path => '', :only => [] do
-    resources :users, :path => '', :only => [:new, :index, :edit, :update, :create, :destroy]
+    resources :users, :path => '', :only => [:new, :index, :show, :edit, :update, :create, :destroy]
     #resources :users, :path => '', :except => [:index]
   end
 
