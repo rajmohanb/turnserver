@@ -24,4 +24,18 @@ class Customer < ActiveRecord::Base
 
   validates_presence_of :first_name, :last_name, :organization
   validates_uniqueness_of :organization
+
+  # capitalize the first letter
+  def first_name=(val)
+    write_attribute(:first_name, val.titleize)
+  end
+
+  def last_name=(val)
+    write_attribute(:last_name, val.capitalize)
+  end
+
+  def organization=(val)
+    write_attribute(:organization, val.capitalize)
+  end
+
 end
