@@ -1,6 +1,9 @@
 require 'securerandom'
 
 class UsersController < ApplicationController
+
+  before_filter :authenticate_customer!
+
   def new
     @user = User.new
   end
