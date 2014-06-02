@@ -26,6 +26,15 @@ class User < ActiveRecord::Base
                   :max_bandwidth, :first_name, :last_name, 
                   :turn_username, :turn_secret
 
+  # capitalize the first letter
+  def first_name=(val)
+    write_attribute(:first_name, val.titleize)
+  end
+
+  def last_name=(val)
+    write_attribute(:last_name, val.capitalize)
+  end
+ 
   #def as_json(options={})
   #  super(:only => [:active_allocs, :allocs, :bandwidth_used, 
   #        :email, :first_name, :last_name])
