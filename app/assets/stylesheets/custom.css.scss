@@ -345,7 +345,9 @@ header nav ul li {
 }
 
 .features_spacer {
-    margin-top: 60px; /* define margin as you see fit */
+    /* margin-top: 60px; *//* define margin as you see fit */
+    padding-top: 50px;
+    padding-bottom: 50px;
 }
 
 .features_li_padded {
@@ -465,9 +467,35 @@ label{
   background-color: #AAC9EC;
   /* background-color: rgba(80,132,192,0.0); */
   /* background: url('world_map_blue_world_map_84261552.jpg');*/
+  /* background-image: url('tumblr_n3ttpb3sFJ1st5lhmo1_1280.jpg');*/
+  /* background-color: #ffffff; */
+  display: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .service-info {
   font-family: 'Raleway', sans-serif;
 }
 
+.how_image {
+  width:160px;
+  height:160px;
+  margin-left: -15px;
+}
+
+#featurefoot {
+  color: #8A8F9D;
+  font-size: 12px;
+  line-height: 30px;
+  font-weight: 300 !important;
+  width: 95%;
+  font-family: 'Arvo', sans-serif;
+}
+
+#featurehead {
+  color: #424654;
+  font-size: 18px;
+  font-weight: bold;
+  font-family: 'Arvo', sans-serif;
+}
