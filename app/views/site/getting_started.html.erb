@@ -1,0 +1,59 @@
+<% provide(:title, 'Getting Started') %>
+<div class="container" style="margin-top:20px;">
+</br>
+
+<h2>Getting Started</h2>
+<hr>
+
+<p>This page describes the process on how to get started with integration of your WebRTC application with the SeamConnect NAT traversal service. The assumption is that the reader has an account already created with the SeamConnect service.</p>
+
+<p>The integration of your WebRTC application and the SeamConnect NAT traversal service involves the following 2 steps</p>
+
+<ol>
+  <li><b>Configuring your SeamConnect account:</b> After signing up, the first thing to do would be to sign in into your account and create accounts for your users (users who already have an account with your WebRTC application) who would be using the NAT traversal server. The facility to create multiple users is provided so that you can audit each of your user/account and his/her TURN relay usage and enforce policies. It is possible that you could create a single common account for all your users, but that would not help you to determine how much data was being relayed for each of your user and audit the NAT traversal usage by each of your users.
+  </li>
+  <br />
+  <li><b>Modify your WebRTC application to start using SeamConnect service:</b> Next step would be to make your WebRTC application aware of SeamConnect service and start using the same. The SeamConnect service provides REST API in order to generate the ephemeral credentials that must be used by your WebRTC application. The REST API provided by SeamConnect service is compliant to the IETF specification <%= link_to "draft-uberti-behave-turn-rest", "http://tools.ietf.org/html/draft-uberti-behave-turn-rest" %>. This specification defines the REST API that must be provided by TURN server as well as the interaction between the WebRTC application and the TURN server. It is advised that once glimpses through this specification.
+  </li>
+</ol>
+
+<br />
+<h2><center>Making your WebRTC application aware of SeamConnect</center></h2>
+<br />
+
+<p>This section will provide details on how to modify your WebRTC application to start making use of the SeamConnect service. Please note that the mechanism described below is only one way for your WebRTC application to generate ephemeral credentials, but there are other means to accomplish the same. Please get in touch with us and we would be happy to work along with you on the same to meet your needs.</p>
+
+<br />
+<center><%= image_tag("seamconnect_getting_started.png", :size => "650x800") %></center>
+<br />
+
+<p>As depicted in the figure above, your WebRTC application must request for ephemeral credentials using the TURN REST API [depicted by action 1 in the figure] and extract the TURN credentials from the received response [depicted by 2 in the figure]. The WebRTC application must then configure the TURN server and credentials to the WebRTC stack using the WebRTC JS API [depicted by 3 in the figure]. After that the WebTRC stack in the browser takes over and does TURN communication with the SeamConnect STUN and TURN server. The steps involved are quite simple and straight forward. Please note that the WebRTC application must request for the ephemeral credentials every time it is reloaded/refreshed</p>
+
+<p>Here we describe the details about the JavaScript api calls</p>
+
+<ol>
+  <li>When your WebRTC application initiates a session, it must send a HTTP POST request to the SeamConnect service. The HTTP POST request URL should be of the form below (This is as per the IETF draft specification). This is identified by action 1 in the above diagram.
+    <p><b><code>https://seamconnect.com/api/v1/users/get_credentials.json?service=turn&email=your_user@example.com&token=xxxxxxxxxxxxxxxxxxxx</code></b></p>
+    <p>In the above URL, 'email' attribute value provides the mail id of your user for whom this request is being sent and the token is the secret token for your account. The secret token for your account is available once you sign in at <%= link_to "SeamConnect", root_path %> and go to <b>"Account->Configuration"</b> link. 'service' attribute value must always remain 'turn'.</p>
+
+    <p>A sample JavaScript code to send the REST API request to SeamConnect service is below</p>
+
+    <code>xmlhttp = new XMLHttpRequest();</code><br />
+    <code>xmlhttp.onreadystatechange = onTurnResult;</code><br />
+    <code>xmlhttp.open('POST', turnUrl, true);</code><br />
+    <code>xmlhttp.setRequestHeader('Content-Type', 'application/json');</code><br />
+    <code>xmlhttp.setRequestHeader('Accept', 'application/json');</code><br />
+    <code>xmlhttp.send();</code><br />
+  </li>
+  <br />
+  <li>When the WebRTC application receives the HTTP response from SeamConnect service, the corresponding JS callback function will be called. In the callback function, the WebRTC webapp must extract the TURN username, secret and the server URIs from the JSON payload and pass on the same to the WebRTC stack in the browser using the WebRTC JS API. And then go on to create a peerconnection. This is identified by actions 2 and 3 in the above diagram.
+    <br />
+    <code>var turnServer = JSON.parse(xmlhttp.responseText);</code><br />
+    <code>var iceServer = createIceServer(turnServer.uris[0], turnServer.username, turnServer.secret);</code><br />
+    <code>pcConfig.iceServers.push(iceServer);</code><br />
+    <br />
+    <p>After this step, all the STUN and TURN communication happens between the WebRTC stack in the browser and the SeamConnect NAT traversal servers (action 4 in the above diagram).</p>
+  </li>
+</ol>
+<br />
+<b><p>In order to visualize the above code in a live application, you could take a look at the modified apprtc application which is available at <%= link_to "Sample SeamConnect Application", "https://seamconnect-webrtc.appspot.com/" %>. This is basically the <%= link_to "apprtc", "https://apprtc.appspot.com/" %> demo code but has been modified to make use of SeamConnect NAT traversal service even when direct p2p connection is possible.</p></b>

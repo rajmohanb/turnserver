@@ -13,6 +13,8 @@ Turnserver::Application.routes.draw do
   match '/tos', to: 'site#tos'
   match '/enterprise', to: 'site#enterprise'
   match '/faq', to: 'site#faq'
+  match '/how_it_works', to: 'site#how_it_works'
+  match '/getting_started', to: 'site#getting_started'
 
   resources :messages, only: [:new, :create]
 
