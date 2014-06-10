@@ -39,7 +39,8 @@
   </tbody>
   </table>
 <% else %>
-  <p>Howdy, no users created so far!.</p>
+  <h6><p>Welcome. You have not created any user accounts so far. In order to use the SeamConnect NAT traversal service, you need to create atleast one user account. In case you have just signed up, please go through the <%= link_to "Getting Started", getting_started_path %> page</p></h6>
 <%end %>
 
-<%= link_to "Add new user?", new_customer_user_path(current_customer), class: "btn btn-success" %>
+<hr />
+<%= link_to "Add new user", new_customer_user_path(current_customer), class: "btn btn-success" %>
