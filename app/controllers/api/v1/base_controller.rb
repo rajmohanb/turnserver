@@ -13,7 +13,7 @@ class Api::V1::BaseController < ActionController::Base
       # ACL - check the CORS Origin header 
       Rails.logger.error("The received CORS ORIGIN header value in request: ")
       Rails.logger.info(request.env["HTTP_ORIGIN"])
-      unless (request.env['HTTP_ORIGIN'] == 'seamconnect-webrtc.appspot.com')
+      unless (request.env['HTTP_ORIGIN'] == 'https://seamconnect-webrtc.appspot.com')
         render :json => { :errors => "Unknown service." }
         return
       end
