@@ -1,7 +1,7 @@
 <p>Dear <%= @resource.first_name %> <%= @resource.last_name %>,</p>
 
 <p>Welcome to SeamConnect service. You need to confirm your account first through the link below:</p>
-<p><%= link_to 'Confirm my account', confirmation_url(@resource, :confirmation_token => @resource.confirmation_token) %></p>
+<p><%= link_to 'Confirm my account', confirmation_url(@resource, :confirmation_token => @token) %></p>
 
 <p>Thanks for joining and have a great day!</p>
 

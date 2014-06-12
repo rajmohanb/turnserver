@@ -6,10 +6,11 @@ class Customer < ActiveRecord::Base
   before_save :ensure_authentication_token
 
   # Include default devise modules. Others available are:
-  # :omniauthable
-  devise :database_authenticatable, :token_authenticatable,
-         :rememberable, :trackable, :timeoutable, :lockable,
-         :registerable, :confirmable, :recoverable, :validatable
+  # :omniauthable, :token_authenticatable,
+
+  devise :database_authenticatable, :rememberable, :trackable, 
+         :timeoutable, :lockable, :registerable, :confirmable, 
+         :recoverable, :validatable
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
@@ -38,4 +39,18 @@ class Customer < ActiveRecord::Base
     write_attribute(:organization, val.capitalize)
   end
 
+  def ensure_authentication_token
+    if authentication_token.blank?
+      self.authentication_token = generate_authentication_token
+    end
+  end
+
+  private
+
+  def generate_authentication_token
+    loop do
+      token = SecureRandom.hex(32)
+      break token unless Customer.where(authentication_token: token).first
+    end
+  end
 end

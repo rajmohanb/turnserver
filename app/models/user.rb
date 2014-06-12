@@ -7,9 +7,8 @@ class User < ActiveRecord::Base
 
   # Include default devise modules. Others available are:
   # :omniauthable, :registerable, :confirmable, :recoverable
-  # :lockable, :timeoutable
-  devise :database_authenticatable, :token_authenticatable,
-         :rememberable, :trackable, :validatable
+  # :lockable, :timeoutable, :token_authenticatable
+  devise :database_authenticatable, :rememberable, :trackable, :validatable
 
   # Association with the allocation model
   has_many :allocations, dependent: :destroy

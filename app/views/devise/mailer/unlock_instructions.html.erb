@@ -4,9 +4,7 @@
 
 <p>Click the link below to unlock your account:</p>
 
-<p><%= link_to 'Unlock my account', unlock_url(@resource, :unlock_token => @resource.unlock_token) %></p>
+<p><%= link_to 'Unlock my account', unlock_url(@resource, :unlock_token => @token) %></p>
 
-<p>
-Regards,
-SeamConnect Team
-</p>
+<p>Regards,<br />
+SeamConnect Team</p>
