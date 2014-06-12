@@ -36,7 +36,7 @@
       <!-- Text input-->
       <%= f.label :webapp_url, :class => "control-label" %>
       <div class="controls">
-        <%= f.text_field :webapp_url, :class => "input-xlarge" %>
+        <%= f.url_field :webapp_url, :class => "input-xlarge" %>
         <p class="help-block"><small>URL of your WebRTC application. eg: https://www.seamconnect.com<br />Please make sure that the URL is complete and accurate including schema (http/https), domain and port (in case server is running on non-standard ports). Otherwise the REST API requests will fail!</small></p>
       </div>
     </div>
