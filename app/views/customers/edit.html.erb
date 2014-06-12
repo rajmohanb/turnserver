@@ -34,10 +34,21 @@
     <div class="control-group">
 
       <!-- Text input-->
-      <%= f.label :last_name, :class => "control-label" %>
+      <%= f.label :webapp_url, :class => "control-label" %>
+      <div class="controls">
+        <%= f.text_field :webapp_url, :class => "input-xlarge" %>
+        <p class="help-block"><small>URL of your WebRTC application. eg: https://www.seamconnect.com<br />Please make sure that the URL is complete and accurate including schema (http/https), domain and port (in case server is running on non-standard ports). Otherwise the REST API requests will fail!</small></p>
+      </div>
+    </div>
+
+
+    <div class="control-group">
+
+      <!-- Text input-->
+      <%= f.label :authentication_token, :class => "control-label" %>
       <div class="controls">
         <%= f.text_field :authentication_token, :readonly => true, :class => "input-xlarge" %>
-        <p class="help-block"></p>
+        <p class="help-block"><small>Authentication key for REST API request</small></p>
       </div>
     </div>
 

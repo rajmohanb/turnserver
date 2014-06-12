@@ -26,6 +26,6 @@ class CustomersController < ApplicationController
 
   private
     def update_params
-      params[:customer].slice(:first_name, :last_name)
+      params[:customer].slice(:first_name, :last_name, :webapp_url)
     end
 end

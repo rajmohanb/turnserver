@@ -14,7 +14,7 @@ class Customer < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
 
-  attr_accessible :realm, :organization, :first_name, :last_name
+  attr_accessible :realm, :organization, :first_name, :last_name, :webapp_url
 
   # Association with the user model
   has_many :users, dependent: :destroy

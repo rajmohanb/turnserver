@@ -10,18 +10,20 @@ class Api::V1::BaseController < ActionController::Base
         return
       end
 
-      # ACL - check the CORS Origin header 
-      Rails.logger.error("The received CORS ORIGIN header value in request: ")
-      Rails.logger.info(request.env["HTTP_ORIGIN"])
-      unless (request.env['HTTP_ORIGIN'] == 'https://seamconnect-webrtc.appspot.com')
-        render :json => { :errors => "Unknown service." }
-        return
-      end
-
       @current_customer = Customer.find_by_authentication_token(params[:token])
       unless @current_customer
         # respond_with({:error => "Token is invalid." })
         render :json => { :errors => "Authentication failed." }
+        return
+      end
+
+      # ACL - check the CORS Origin header 
+      Rails.logger.error("The received CORS ORIGIN header value in request: ")
+      Rails.logger.info(request.env["HTTP_ORIGIN"])
+      Rails.logger.error(@current_customer.webapp_url)
+      unless (request.env['HTTP_ORIGIN'] == @current_customer.webapp_url)
+        Rails.logger.error("The ORIGIN header is invalid, hence rejecting the request")
+        render :json => { :errors => "Forbidden!" }
         return
       end
     end

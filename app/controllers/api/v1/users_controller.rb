@@ -17,7 +17,7 @@ class Api::V1::UsersController < Api::V1::BaseController
       return
     end
 
-    Rails.logger.info(request.env)
+    #Rails.logger.info(request.env)
 
     @cred = EphemeralCredential.new()
     # TODO - Need to generate the username based on timestamp and recvd user id?
@@ -41,7 +41,7 @@ class Api::V1::UsersController < Api::V1::BaseController
   def  cors_preflight_check
     if request.method == :options
       logger.error 'In cors_preflight_check'
-      Rails.logger.info(request.env)
+      #Rails.logger.info(request.env)
       cors_set_access_control_headers 
       head :ok
     end
@@ -58,7 +58,7 @@ class Api::V1::UsersController < Api::V1::BaseController
   def cors_set_access_control_headers
     logger.error 'In cors_set_access_control_headers'
     headers['Access-Control-Allow-Origin'] = request.env['HTTP_ORIGIN']
-    headers['Access-Control-Allow-Methods'] = 'POST, OPTIONS'
+    headers['Access-Control-Allow-Methods'] = 'POST'
     # headers['Access-Control-Request-Method'] = '*'
     #headers['Access-Control-Allow-Headers'] = request.headers['Content-Type'] if request.headers['Content-Type']
     headers['Access-Control-Allow-Headers'] = 'Content-Type'

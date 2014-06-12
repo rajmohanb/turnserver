@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140525045505) do
+ActiveRecord::Schema.define(:version => 20140612072115) do
 
   create_table "allocations", :force => true do |t|
     t.integer  "req_lifetime"
@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(:version => 20140525045505) do
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.string   "slug"
+    t.string   "webapp_url",                             :null => false
   end
 
   add_index "customers", ["authentication_token"], :name => "index_customers_on_authentication_token", :unique => true
@@ -65,6 +66,7 @@ ActiveRecord::Schema.define(:version => 20140525045505) do
   add_index "customers", ["reset_password_token"], :name => "index_customers_on_reset_password_token", :unique => true
   add_index "customers", ["slug"], :name => "index_customers_on_slug"
   add_index "customers", ["unlock_token"], :name => "index_customers_on_unlock_token", :unique => true
+  add_index "customers", ["webapp_url"], :name => "index_customers_on_webapp_url", :unique => true
 
   create_table "ephemeral_credentials", :force => true do |t|
     t.string   "username"
