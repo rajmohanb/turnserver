@@ -17,6 +17,8 @@ class Api::V1::UsersController < Api::V1::BaseController
       return
     end
 
+    Rails.logger.info(request.env)
+
     @cred = EphemeralCredential.new()
     # TODO - Need to generate the username based on timestamp and recvd user id?
     @cred.username = SecureRandom.base64(16).gsub(/=+$/, '')
@@ -39,6 +41,7 @@ class Api::V1::UsersController < Api::V1::BaseController
   def  cors_preflight_check
     if request.method == :options
       logger.error 'In cors_preflight_check'
+      Rails.logger.info(request.env)
       cors_set_access_control_headers 
       head :ok
     end
