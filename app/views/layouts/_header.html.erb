@@ -10,7 +10,7 @@
           <li><%= link_to "FAQ", faq_path %></li>
           <% if customer_signed_in? %>
             <li><%= link_to current_customer.organization, customer_path(current_customer) %></li>
-            <li><%= link_to "Getting started", getting_started_path %></li>
+            <li><%= link_to "Getting Started", getting_started_path %></li>
             <li><%= link_to "Account", edit_customer_path(current_customer) %></li>
           <% else %>
             <li><%= link_to "How it works", how_it_works_path %></li>
@@ -28,8 +28,8 @@
                 destroy_customer_session_path, :method => :delete %></li>
           <% else %>
             <li><!-- <i class="icon-user icon-white"></i> -->
-            <%= link_to "Sign Up",  new_customer_registration_path %></li>
-            <li><%= link_to "Sign In",  new_customer_session_path %></li>
+            <%= link_to "SIGN UP",  new_customer_registration_path %></li>
+            <li><%= link_to "SIGN IN",  new_customer_session_path %></li>
           <% end %>
         </ul>
       </nav>
