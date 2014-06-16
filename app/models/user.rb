@@ -3,7 +3,10 @@ class User < ActiveRecord::Base
   extend FriendlyId
   friendly_id :first_name, use: :slugged
 
-  before_save :ensure_authentication_token
+  # TODO: enable this if we want to give REST API access using each 
+  # user's authentication token. Currently REST API authenticates 
+  # using only the Customer's authentication token.
+  # before_save :ensure_authentication_token
 
   # Include default devise modules. Others available are:
   # :omniauthable, :registerable, :confirmable, :recoverable
