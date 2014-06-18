@@ -10,69 +10,101 @@
 
 <div class="row">
 <div class="span3">
-	<div class="well">
+	<div class="well centered">
 		<h2 class="text-info">Free for a month</h2>
-		<p><span class="label label-info">Starter</span></p>
+        <!-- <p><span class="label label-info">Starter</span></p> -->
 		<ul>
-			<li>1GB relay bandwidth</li>
-			<li>E-mail support</li>
+			<h6>50 user accounts</h6>
+            <h6>1 GB relay bandwidth</h6>
+            <h6>E-mail support</h6>
 		</ul>          
 		<hr>
-		<h3>Free for a month</h3>
+		<h3 class="text-center">Free for a month</h3>
 		<hr>
 	</div>
 </div>
 <div class="span3">
-	<div class="well">
-		<h2 class="text-info">Bronze</h2>
-		<p><span class="label label-info">BUDGET</span></p>
+	<div class="well pagination-centered">
+        <h2 class="text-info">Basic</h2>
+        <!-- <p><span class="label label-info">BUDGET</span></p> -->
 		<ul>
-			<li>50 user accounts</li>
-			<li>5GB relay bandwidth</li>
-			<li>E-mail support</li>
-		</ul>          
+			<h6>50 user accounts</h6>
+			<h6>10 GB relay bandwidth</h6>
+      <h6>$0.50 per additional GB</p>
+			<h6>E-mail support</h6>
+		</ul>
 		<hr>
-		<h3>$99/month</h3>
+		<h3 class="text-center">$39 monthly</h3>
 		<hr>
       <p><a class="btn btn-info btn-large" href="#"><i class="icon-ok"></i> Select plan</a></p>
 	</div>
 </div>
 <div class="span3">
-	<div class="well">
-		<h2 class="text-success">Silver</h2>
-		<p><span class="label label-success">POPULAR</span></p>
+	<div class="well pagination-centered">
+		<h2 class="text-success">Standard</h2>
+        <!-- <p><span class="label label-success">POPULAR</span></p> -->
 		<ul>
-			<li>250 user accounts</li>
-			<li>50GB relay bandwidth</li>
-			<li>E-mail support</li>
+			<h6>250 user accounts</h6>
+			<h6>100 GB relay bandwidth</h6>
+      <h6>$0.50 per additional GB</p>
+			<h6>E-mail support</h6>
 		</ul>          
 		<hr>
-		<h3>$449/month</h3>
+		<h3>$99 monthly</h3>
 		<hr>
 		<p><a class="btn btn-success btn-large" href="#"><i class="icon-ok"></i> Select plan</a></p>
 	</div>
 </div>
 <div class="span3">
-	<div class="well">
-		<h2 class="text-warning">Gold</h2>
-		<p><span class="label label-warning">POPULAR</span></p>
+	<div class="well pagination-centered">
+		<h2 class="text-warning">Pro</h2>
+        <!-- <p><span class="label label-warning">POPULAR</span></p> -->
 		<ul>
-			<li>Unlimited user accounts</li>
-			<li>500 GB relay bandwidth</li>
-			<li>E-mail support</li>
+			<h6>Unlimited user accounts</h6>
+			<h6>500 GB relay bandwidth</h6>
+      <h6>$0.50 per additional GB</p>
+			<h6>E-mail support</h6>
 		</ul>          
 		<hr>
-		<h3>$899/month</h3>
+		<h3>$299 monthly</h3>
 		<hr>
 		<p><a class="btn btn-warning btn-large" href="#"><i class="icon-ok"></i> Select plan</a></p>
 	</div>
 </div>
 </div>
-
-<p>* Prices are subject to change</p>
-
 <br />
 
+
+<h4 class="text-center">Pricing and Billing</h4>
+<br />
+
+<div class="row">
+  <div style="margin-left:30px;">
+  <h5>What is pricing based on?</h5>
+  <p>The overall basis of the pricing is to keep it simple and fair for our customers. The plans are based on the bandwidth consumed by the customer when the data is actually relayed by our TURN servers when the direct P2P connection establishment fails. The TURN and STUN signaling messages which are used for every WebRTC session, are excluded from the bandwidth calculation. This is significant because approx 85% of the WebRTC sessions exchange media directly with each other (peer-to-peer) without the need for any media data relay by TURN server. So the charging is only for the rest 15% WebRTC sessions, where direct P2P connectivity fails.</p>
+  <br />
+  <h5>What happens if I go over my allocated bandwidth usage?</h5>
+  <p>SeamConnect will email you of your bandwidth usage when the account reaches the limit. Any additional usage beyond the limit will be charged based on the tier plan.</p>
+  <br />
+  <h5>How do I monitor my bandwidth usage?</h5>
+  <p>You can login to your account and view all the statictics including usage by each one of your user. You could also fetch your account statistics using the REST API.</p>
+  <br />
+  <h5>How do I change my billing plan?</h5>
+  <p>Please email us the details and we will handle the rest.</p>
+  <br />
+  <h5>How do I control the bandwidth usage if individual users?</h5>
+  <p>You can set the bandwidth usage of each individual user by logging into the SeamConnect service. In addition, you can also enforce other parameters such as maximum concurrent sessions, allowed transports etc.</p>
+  <br />
+  <h5>How do I enforce policies on individual user basis?</h5>
+  <p>You can control each individual user account from the dashboard. This includes bandwidth usage, allowed transports, maximum concurrent sessions etc.</p>
+  <br />
+  <h5>How is billing done?</h5>
+  <p>Billing is done at the end of each month and youu will be billed for any additional usage only if you have exceeded your tier plan limits.</p>
+  <br />
+  </div>
+</div>
+
 <h4 class="text-center">If you have any questions, please contact us via the <a href="/contact.html">contact</a> form or send an email to contact@seamconnect.com</h4>
+<br />
 
 </div>
