@@ -10,17 +10,19 @@
 
 <div class="row">
 <div class="span3">
-	<div class="well centered">
+	<div class="well pagination-centered">
 		<h2 class="text-info">Free for a month</h2>
         <!-- <p><span class="label label-info">Starter</span></p> -->
 		<ul>
 			<h6>50 user accounts</h6>
             <h6>1 GB relay bandwidth</h6>
             <h6>E-mail support</h6>
+            <br />
 		</ul>          
 		<hr>
 		<h3 class="text-center">Free for a month</h3>
 		<hr>
+        <p><%= link_to '<i class="icon-ok"></i> Try Now'.html_safe, new_customer_registration_path, {:class => "btn btn-info btn-large" } %></p>
 	</div>
 </div>
 <div class="span3">
