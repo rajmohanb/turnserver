@@ -2,6 +2,11 @@
 <h3><center><%= @customer.organization %></center></h3>
 <hr />
 
+<!-- <p class="text-info"> Bandwidth Quota : <%= @customer.allowed_bw %> MB</p>
+<p class="text-info"> Bandwidth User so far : <%= @customer.total_bandwidth_consumed/(1024 * 1024) %> MB</p>
+<hr />
+-->
+
 
 <% if @customer.users.any? %>
 

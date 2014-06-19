@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140612192416) do
+ActiveRecord::Schema.define(:version => 20140619050241) do
 
   create_table "allocations", :force => true do |t|
     t.integer  "req_lifetime"
@@ -32,8 +32,8 @@ ActiveRecord::Schema.define(:version => 20140612192416) do
   add_index "allocations", ["user_id"], :name => "index_allocations_on_user_id"
 
   create_table "customers", :force => true do |t|
-    t.string   "email",                  :default => "", :null => false
-    t.string   "encrypted_password",     :default => "", :null => false
+    t.string   "email",                  :default => "",   :null => false
+    t.string   "encrypted_password",     :default => "",   :null => false
     t.datetime "remember_created_at"
     t.integer  "sign_in_count",          :default => 0
     t.datetime "current_sign_in_at"
@@ -44,8 +44,8 @@ ActiveRecord::Schema.define(:version => 20140612192416) do
     t.string   "unlock_token"
     t.datetime "locked_at"
     t.string   "authentication_token"
-    t.datetime "created_at",                             :null => false
-    t.datetime "updated_at",                             :null => false
+    t.datetime "created_at",                               :null => false
+    t.datetime "updated_at",                               :null => false
     t.string   "realm"
     t.string   "first_name"
     t.string   "last_name"
@@ -57,7 +57,8 @@ ActiveRecord::Schema.define(:version => 20140612192416) do
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.string   "slug"
-    t.string   "webapp_url",             :default => "", :null => false
+    t.string   "webapp_url",             :default => "",   :null => false
+    t.integer  "allowed_bw",             :default => 1024
   end
 
   add_index "customers", ["authentication_token"], :name => "index_customers_on_authentication_token", :unique => true

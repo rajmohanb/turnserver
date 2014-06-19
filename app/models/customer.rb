@@ -45,6 +45,10 @@ class Customer < ActiveRecord::Base
     end
   end
 
+  def total_bandwidth_consumed
+    self.users.sum(:bandwidth_used)
+  end
+
   private
 
   def generate_authentication_token
