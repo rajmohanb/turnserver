@@ -8,9 +8,10 @@
       <nav>
         <ul class="nav">
           <li><%= link_to "FAQ", faq_path %></li>
+          <li><%= link_to "Demo", "https://seamconnect-webrtc.appspot.com/" %></li>
+          <li><%= link_to "Getting Started", getting_started_path %></li>
           <% if customer_signed_in? %>
             <li><%= link_to current_customer.organization, customer_path(current_customer) %></li>
-            <li><%= link_to "Getting Started", getting_started_path %></li>
             <li><%= link_to "Account", edit_customer_path(current_customer) %></li>
           <% else %>
             <li><%= link_to "How it works", how_it_works_path %></li>
